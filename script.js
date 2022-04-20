@@ -12,8 +12,10 @@ function clear() {
 function numberInput() {
   numbers.forEach((number) => {
     number.addEventListener("click", () => {
-      p.textContent += number.value;
-      inputHolder = Number(p.textContent);
+      if (p.textContent.length < 9) {
+        p.textContent += number.value;
+        inputHolder = Number(p.textContent);
+      }
     });
   });
 }
