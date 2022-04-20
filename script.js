@@ -1,7 +1,9 @@
 const p = document.querySelector("p");
 const numbers = document.querySelectorAll(".numbers");
+const equals = document.querySelector(".equal");
 let inputHolder = 0;
 let inputHolder2 = 0;
+let result = 0;
 
 function clear() {
   const ac = document.querySelector("#clear");
@@ -18,6 +20,12 @@ function numberInput() {
         inputHolder = Number(p.textContent);
       }
     });
+  });
+}
+
+function equal() {
+  equals.addEventListener("click", () => {
+    p.textContent = result.toString();
   });
 }
 
@@ -51,3 +59,4 @@ function operate(operator, int1, int2) {
 
 numberInput();
 clear();
+equal();
