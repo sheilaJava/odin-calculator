@@ -16,7 +16,6 @@ function numberInput() {
       if (p.textContent.length < 9) {
         p.textContent += number.value;
         inputHolder = Number(p.textContent);
-        return inputHolder;
       }
     });
   });
