@@ -1,9 +1,11 @@
 const p = document.querySelector("p");
 const numbers = document.querySelectorAll(".numbers");
+const operators = document.querySelectorAll(".operators");
 const equals = document.querySelector(".equal");
-let inputHolder = 0;
-let inputHolder2 = 0;
+let holder1 = 0;
+let holder2 = 0;
 let result = 0;
+let chosenOperator = "";
 
 function clear() {
   const ac = document.querySelector("#clear");
@@ -13,12 +15,21 @@ function clear() {
 }
 
 function numberInput() {
+  p.textContent = "";
   numbers.forEach((number) => {
     number.addEventListener("click", () => {
       if (p.textContent.length < 9) {
         p.textContent += number.value;
-        inputHolder = Number(p.textContent);
       }
+    });
+  });
+}
+
+function operatorInput() {
+  operators.forEach((operator) => {
+    operator.addEventListener("click", () => {
+      holder1 = Number(p.textContent);
+      p.textContent = operator.value;
     });
   });
 }
@@ -26,6 +37,7 @@ function numberInput() {
 function equal() {
   equals.addEventListener("click", () => {
     p.textContent = result.toString();
+    result = 0;
   });
 }
 
@@ -57,6 +69,21 @@ function operate(operator, int1, int2) {
   }
 }
 
+//chosenOperator = operatorInput();
+
+// if (holder1 === 0 && result === 0) {
+//   numberInput();
+// } else if (holder1 === 0 && result != 0) {
+//   holder1 = result;
+// } else {
+//   numberInput()
+// }
+
+// if (chosenOperator && holder1 && holder2) {
+//   result = operate(operator, holder1, holder2);
+// }
+
 numberInput();
+operatorInput();
 clear();
 equal();
