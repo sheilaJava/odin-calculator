@@ -67,7 +67,7 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-  return (x / y).toFixed(2);
+  return Math.round((x / y) * 100) / 100;
 }
 
 function operate(operator, int1, int2) {
