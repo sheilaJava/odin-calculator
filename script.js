@@ -15,11 +15,18 @@ function clear() {
 }
 
 function numberInput() {
-  p.textContent = "";
   numbers.forEach((number) => {
     number.addEventListener("click", () => {
-      if (p.textContent.length < 9) {
+      if (
+        p.textContent.length < 9 &&
+        p.textContent != "+" &&
+        p.textContent != "-" &&
+        p.textContent != "×" &&
+        p.textContent != "÷"
+      ) {
         p.textContent += number.value;
+      } else {
+        p.textContent = number.value;
       }
     });
   });
@@ -30,16 +37,22 @@ function operatorInput() {
     operator.addEventListener("click", () => {
       holder1 = Number(p.textContent);
       p.textContent = operator.value;
+      chosenOperator = p.textContent;
     });
   });
 }
 
+// Multiple operation without clicking equal ?
+
 function equal() {
   equals.addEventListener("click", () => {
-    p.textContent = result.toString();
-    result = 0;
+    holder2 = Number(p.textContent);
+    result = operate(chosenOperator, holder1, holder2);
+    p.textContent = result;
   });
 }
+
+// Problem : equal works forever
 
 function add(x, y) {
   return x + y;
@@ -54,7 +67,7 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-  return x / y;
+  return (x / y).toFixed(2);
 }
 
 function operate(operator, int1, int2) {
@@ -62,26 +75,12 @@ function operate(operator, int1, int2) {
     return add(int1, int2);
   } else if (operator === "-") {
     return subtract(int1, int2);
-  } else if (operator === "*") {
+  } else if (operator === "×") {
     return multiply(int1, int2);
   } else if (operator === "÷") {
     return divide(int1, int2);
   }
 }
-
-//chosenOperator = operatorInput();
-
-// if (holder1 === 0 && result === 0) {
-//   numberInput();
-// } else if (holder1 === 0 && result != 0) {
-//   holder1 = result;
-// } else {
-//   numberInput()
-// }
-
-// if (chosenOperator && holder1 && holder2) {
-//   result = operate(operator, holder1, holder2);
-// }
 
 numberInput();
 operatorInput();
