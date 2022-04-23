@@ -7,11 +7,19 @@ let holder2 = 0;
 let result = 0;
 let chosenOperator = "";
 
-function clear() {
+function acClear() {
   const ac = document.querySelector("#clear");
   ac.addEventListener("click", () => {
+    clear();
     p.textContent = "";
   });
+}
+
+function clear() {
+  holder1 = 0;
+  holder2 = 0;
+  chosenOperator = "";
+  result = 0;
 }
 
 function numberInput() {
@@ -35,24 +43,34 @@ function numberInput() {
 function operatorInput() {
   operators.forEach((operator) => {
     operator.addEventListener("click", () => {
-      holder1 = Number(p.textContent);
-      p.textContent = operator.value;
-      chosenOperator = p.textContent;
+      if (holder1 === 0) {
+        holder1 = Number(p.textContent);
+        p.textContent = operator.value;
+        chosenOperator = p.textContent;
+      } else if (holder1 != 0) {
+        holder2 = Number(p.textContent);
+        result = operate(chosenOperator, holder1, holder2);
+        holder1 = result;
+        p.textContent = operator.value;
+        chosenOperator = p.textContent;
+      }
     });
   });
 }
 
-// Multiple operation without clicking equal ?
-
 function equal() {
   equals.addEventListener("click", () => {
-    holder2 = Number(p.textContent);
-    result = operate(chosenOperator, holder1, holder2);
-    p.textContent = result;
+    if (result === 0 || result === holder1) {
+      holder2 = Number(p.textContent);
+      result = operate(chosenOperator, holder1, holder2);
+      p.textContent = result;
+      holder1 = result;
+    } else if (result != 0) {
+      p.textContent = result;
+    }
+    clear();
   });
 }
-
-// Problem : equal works forever
 
 function add(x, y) {
   return x + y;
@@ -84,5 +102,5 @@ function operate(operator, int1, int2) {
 
 numberInput();
 operatorInput();
-clear();
+acClear();
 equal();
