@@ -1,75 +1,84 @@
 * {
-    font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 body {
-    background-color: #E4E4E4;
+  background-color: #e4e4e4;
 }
 
 .calculator {
-    width: 300px;
-    height: auto;
-    margin: 100px auto;
-    background-color: whitesmoke;
-    border-radius: 25px;
-    box-shadow: 5px 5px 30px #D5D5D5;
+  width: 300px;
+  height: auto;
+  margin: 6.5% auto;
+  background-color: whitesmoke;
+  border-radius: 25px;
+  box-shadow: 5px 5px 30px #d5d5d5;
 }
 
 .screen {
-    height: 150px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-end;
+  height: 150px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
 }
 
 p {
-    font-size: 58px;
-    margin: 0px 15px 5px 0px;
+  font-size: 54px;
+  margin: 0px 15px 5px 0px;
 }
 
 .keyboard {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .row {
-    display: flex;
+  display: flex;
 }
 
 input {
-    flex-grow: 1;
-    width: 75px;
-    height: 70px;
-    border-style: none;
-    font-size: 16px;
+  flex-grow: 1;
+  width: 75px;
+  height: 70px;
+  border-style: none;
+  font-size: 16px;
 }
 
 input[value="AC"] {
-    border-top-left-radius: 25px;
+  border-top-left-radius: 25px;
 }
 
 input[value="÷"] {
-    border-top-right-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 input[value="0"] {
-    border-bottom-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 input[value="="] {
-    border-bottom-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .operators,
 .equal {
-    font-size: 20px;
-    color: #f25f5c;
+  font-size: 20px;
+  color: #f25f5c;
 }
 
 .topRow {
-    color: #52b788;
+  color: #52b788;
 }
 
 #zero {
-    width: 150px;
+  width: 150px;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+a {
+  color: black;
 }
