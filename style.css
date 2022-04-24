@@ -9,7 +9,7 @@ body {
 .calculator {
   width: 300px;
   height: auto;
-  margin: 6.5% auto;
+  margin: 70px auto;
   background-color: whitesmoke;
   border-radius: 25px;
   box-shadow: 5px 5px 30px #d5d5d5;
@@ -75,8 +75,12 @@ input[value="="] {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   text-align: center;
   font-size: 14px;
+  padding-bottom: 5px;
 }
 
 a {
