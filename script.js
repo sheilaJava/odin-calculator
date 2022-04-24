@@ -11,7 +11,7 @@ function acClear() {
   const ac = document.querySelector("#clear");
   ac.addEventListener("click", () => {
     clear();
-    p.textContent = "";
+    p.textContent = "0";
   });
 }
 
@@ -30,7 +30,8 @@ function numberInput() {
         p.textContent != "+" &&
         p.textContent != "-" &&
         p.textContent != "×" &&
-        p.textContent != "÷"
+        p.textContent != "÷" &&
+        p.textContent != "0"
       ) {
         p.textContent += number.value;
       } else {
@@ -43,11 +44,11 @@ function numberInput() {
 function operatorInput() {
   operators.forEach((operator) => {
     operator.addEventListener("click", () => {
-      if (holder1 === 0) {
+      if (!holder1) {
         holder1 = Number(p.textContent);
         p.textContent = operator.value;
         chosenOperator = p.textContent;
-      } else if (holder1 != 0) {
+      } else if (holder1) {
         holder2 = Number(p.textContent);
         result = operate(chosenOperator, holder1, holder2);
         holder1 = result;
@@ -60,12 +61,19 @@ function operatorInput() {
 
 function equal() {
   equals.addEventListener("click", () => {
-    if (result === 0 || result === holder1) {
+    if (
+      p.textContent === "+" ||
+      p.textContent === "-" ||
+      p.textContent === "×" ||
+      p.textContent === "÷"
+    ) {
+      p.textContent = holder1;
+    } else if (chosenOperator && (!result || result === holder1)) {
       holder2 = Number(p.textContent);
       result = operate(chosenOperator, holder1, holder2);
       p.textContent = result;
       holder1 = result;
-    } else if (result != 0) {
+    } else if (result) {
       p.textContent = result;
     }
     clear();
