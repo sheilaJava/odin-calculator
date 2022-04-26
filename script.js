@@ -1,5 +1,6 @@
 const p = document.querySelector("p");
 const numbers = document.querySelectorAll(".numbers");
+const point = document.querySelector(".point");
 const operators = document.querySelectorAll(".operators");
 const equals = document.querySelector(".equal");
 let holder1 = 0;
@@ -38,6 +39,14 @@ function numberInput() {
         p.textContent = number.value;
       }
     });
+  });
+}
+
+function pointInput() {
+  point.addEventListener("click", () => {
+    if (p.textContent.indexOf(".") === -1 && p.textContent.length < 9) {
+      p.textContent += ".";
+    }
   });
 }
 
@@ -81,15 +90,15 @@ function equal() {
 }
 
 function add(x, y) {
-  return x + y;
+  return Math.round((x + y) * 100) / 100;
 }
 
 function subtract(x, y) {
-  return x - y;
+  return Math.round((x - y) * 100) / 100;
 }
 
 function multiply(x, y) {
-  return x * y;
+  return Math.round(x * y * 100) / 100;
 }
 
 function divide(x, y) {
@@ -109,6 +118,7 @@ function operate(operator, int1, int2) {
 }
 
 numberInput();
+pointInput();
 operatorInput();
 acClear();
 equal();
