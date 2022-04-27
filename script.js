@@ -53,11 +53,23 @@ function pointInput() {
 function operatorInput() {
   operators.forEach((operator) => {
     operator.addEventListener("click", () => {
-      if (!holder1) {
+      if (
+        !holder1 &&
+        p.textContent != "+" &&
+        p.textContent != "-" &&
+        p.textContent != "×" &&
+        p.textContent != "÷"
+      ) {
         holder1 = Number(p.textContent);
         p.textContent = operator.value;
         chosenOperator = p.textContent;
-      } else if (holder1) {
+      } else if (
+        holder1 &&
+        p.textContent != "+" &&
+        p.textContent != "-" &&
+        p.textContent != "×" &&
+        p.textContent != "÷"
+      ) {
         holder2 = Number(p.textContent);
         result = operate(chosenOperator, holder1, holder2);
         holder1 = result;
