@@ -3,17 +3,41 @@ const numbers = document.querySelectorAll(".numbers");
 const point = document.querySelector(".point");
 const operators = document.querySelectorAll(".operators");
 const equals = document.querySelector(".equal");
+const ac = document.querySelector(".clear");
+const percent = document.querySelector(".percent");
+const sign = document.querySelector(".sign");
+
 let holder1 = 0;
 let holder2 = 0;
 let result = 0;
 let chosenOperator = "";
 
-function acClear() {
-  const ac = document.querySelector("#clear");
-  ac.addEventListener("click", () => {
-    clear();
-    p.textContent = "0";
-  });
+function add(x, y) {
+  return Math.round((x + y) * 100) / 100;
+}
+
+function subtract(x, y) {
+  return Math.round((x - y) * 100) / 100;
+}
+
+function multiply(x, y) {
+  return Math.round(x * y * 100) / 100;
+}
+
+function divide(x, y) {
+  return Math.round((x / y) * 100) / 100;
+}
+
+function operate(operator, int1, int2) {
+  if (operator === "+") {
+    return add(int1, int2);
+  } else if (operator === "-") {
+    return subtract(int1, int2);
+  } else if (operator === "×") {
+    return multiply(int1, int2);
+  } else if (operator === "÷") {
+    return divide(int1, int2);
+  }
 }
 
 function clear() {
@@ -21,6 +45,27 @@ function clear() {
   holder2 = 0;
   chosenOperator = "";
   result = 0;
+}
+
+function acClear() {
+  ac.addEventListener("click", () => {
+    clear();
+    p.textContent = "0";
+  });
+}
+
+function percentage() {
+  percent.addEventListener("click", () => {
+    result = divide(Number(p.textContent), 100);
+    p.textContent = result;
+  });
+}
+
+function convertSign() {
+  sign.addEventListener("click", () => {
+    result = multiply(Number(p.textContent), -1);
+    p.textContent = result;
+  });
 }
 
 function numberInput() {
@@ -101,34 +146,8 @@ function equal() {
   });
 }
 
-function add(x, y) {
-  return Math.round((x + y) * 100) / 100;
-}
-
-function subtract(x, y) {
-  return Math.round((x - y) * 100) / 100;
-}
-
-function multiply(x, y) {
-  return Math.round(x * y * 100) / 100;
-}
-
-function divide(x, y) {
-  return Math.round((x / y) * 100) / 100;
-}
-
-function operate(operator, int1, int2) {
-  if (operator === "+") {
-    return add(int1, int2);
-  } else if (operator === "-") {
-    return subtract(int1, int2);
-  } else if (operator === "×") {
-    return multiply(int1, int2);
-  } else if (operator === "÷") {
-    return divide(int1, int2);
-  }
-}
-
+percentage();
+convertSign();
 numberInput();
 pointInput();
 operatorInput();
