@@ -56,15 +56,19 @@ function acClear() {
 
 function percentage() {
   percent.addEventListener("click", () => {
-    result = divide(Number(p.textContent), 100);
-    p.textContent = result;
+    if (Number(p.textContent)) {
+      result = divide(Number(p.textContent), 100);
+      p.textContent = result;
+    }
   });
 }
 
 function convertSign() {
   sign.addEventListener("click", () => {
-    result = multiply(Number(p.textContent), -1);
-    p.textContent = result;
+    if (Number(p.textContent)) {
+      result = multiply(Number(p.textContent), -1);
+      p.textContent = result;
+    }
   });
 }
 
@@ -89,7 +93,11 @@ function numberInput() {
 
 function pointInput() {
   point.addEventListener("click", () => {
-    if (p.textContent.indexOf(".") === -1 && p.textContent.length < 9) {
+    if (
+      p.textContent.indexOf(".") === -1 &&
+      p.textContent.length < 9 &&
+      (Number(p.textContent) || p.textContent === "0")
+    ) {
       p.textContent += ".";
     }
   });
