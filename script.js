@@ -125,6 +125,14 @@ function operatorInput() {
   });
 }
 
+function limitLength(int) {
+  if (int.toString().length > 9) {
+    return int.toExponential(2);
+  } else {
+    return int;
+  }
+}
+
 function equal() {
   equals.addEventListener("click", () => {
     if (
@@ -137,10 +145,9 @@ function equal() {
     } else if (chosenOperator && (!result || result === holder1)) {
       holder2 = Number(p.textContent);
       result = operate(chosenOperator, holder1, holder2);
-      p.textContent = result;
-      holder1 = result;
+      p.textContent = limitLength(result);
     } else if (result) {
-      p.textContent = result;
+      p.textContent = limitLength(result);
     }
     clear();
   });
