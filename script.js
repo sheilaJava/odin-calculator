@@ -6,6 +6,7 @@ const equals = document.querySelector(".equal");
 const ac = document.querySelector(".clear");
 const percent = document.querySelector(".percent");
 const sign = document.querySelector(".sign");
+const operatorsArray = ["+", "-", "×", "÷"];
 
 let holder1 = 0;
 let holder2 = 0;
@@ -44,13 +45,13 @@ function clear() {
   holder1 = 0;
   holder2 = 0;
   chosenOperator = "";
-  result = 0;
 }
 
 function acClear() {
   ac.addEventListener("click", () => {
     clear();
     p.textContent = "0";
+    result = 0;
   });
 }
 
@@ -76,16 +77,17 @@ function numberInput() {
   numbers.forEach((number) => {
     number.addEventListener("click", () => {
       if (
-        p.textContent.length < 9 &&
-        p.textContent != "+" &&
-        p.textContent != "-" &&
-        p.textContent != "×" &&
-        p.textContent != "÷" &&
-        p.textContent != "0"
+        result != 0 ||
+        p.textContent === "0" ||
+        p.textContent === "+" ||
+        p.textContent === "-" ||
+        p.textContent === "×" ||
+        p.textContent === "÷"
       ) {
-        p.textContent += number.value;
-      } else {
         p.textContent = number.value;
+        result = 0;
+      } else if (p.textContent.length < 9) {
+        p.textContent += number.value;
       }
     });
   });
