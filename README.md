@@ -1,8 +1,6 @@
-<p align="center">
-  <img src="./img/readmeIcon.png" alt="Calculator Icon">
-</p>
 <h1 align="center">Calculator</h1>
-<a align="center" href="https://afkus3r.github.io/odin-calculator/">Live demo</a>
+ 
+ [Live demo](https://afkus3r.github.io/odin-calculator/)
 
 This calculator lets you do simple operations like additions, subtractions, divisions, multiplication, and converting a number to a percentage or a negative number. I made it as part of [The Odin Project](https://www.theodinproject.com/) curriculum, as the last assignment of the [Foundations](https://www.theodinproject.com/paths/foundations/courses/foundations).
 
@@ -17,8 +15,8 @@ After learning the basics of HTML, CSS, and JavaScript, the goal was to make a s
 
 ### Extra credit
 
-- [x] Add a . button and let users input decimals!
-- [x] Make it look nice! This is a great project to practice your CSS skills. At least make the operations a different color from the keypad buttons.
+- Add a . button and let users input decimals!
+- Make it look nice! This is a great project to practice your CSS skills. At least make the operations a different color from the keypad buttons.
 
 ## Made with
 
@@ -34,4 +32,4 @@ This project pushed me to do some research and exchange with other developers. I
 
 ## Resources
 
-Icons are from [Icons8](https://icones8.fr/).
+Favicon is from [Icons8](https://icones8.fr/).
