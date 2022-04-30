@@ -6,7 +6,6 @@ const equals = document.querySelector(".equal");
 const ac = document.querySelector(".clear");
 const percent = document.querySelector(".percent");
 const sign = document.querySelector(".sign");
-const operatorsArray = ["+", "-", "×", "÷"];
 
 let holder1 = 0;
 let holder2 = 0;
