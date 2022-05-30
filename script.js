@@ -76,7 +76,7 @@ function numberInput() {
   numbers.forEach((number) => {
     number.addEventListener("click", () => {
       if (
-        result != 0 ||
+        result !== 0 ||
         p.textContent === "0" ||
         p.textContent === "+" ||
         p.textContent === "-" ||
@@ -109,20 +109,20 @@ function operatorInput() {
     operator.addEventListener("click", () => {
       if (
         !holder1 &&
-        p.textContent != "+" &&
-        p.textContent != "-" &&
-        p.textContent != "×" &&
-        p.textContent != "÷"
+        p.textContent !== "+" &&
+        p.textContent !== "-" &&
+        p.textContent !== "×" &&
+        p.textContent !== "÷"
       ) {
         holder1 = Number(p.textContent);
         p.textContent = operator.value;
         chosenOperator = p.textContent;
       } else if (
         holder1 &&
-        p.textContent != "+" &&
-        p.textContent != "-" &&
-        p.textContent != "×" &&
-        p.textContent != "÷"
+        p.textContent !== "+" &&
+        p.textContent !== "-" &&
+        p.textContent !== "×" &&
+        p.textContent !== "÷"
       ) {
         holder2 = Number(p.textContent);
         result = operate(chosenOperator, holder1, holder2);
